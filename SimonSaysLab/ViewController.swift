@@ -13,11 +13,56 @@ class ViewController: UIViewController {
     @IBOutlet weak var displayColorView: UIView!
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var winLabel: UILabel!
+    
+    
+    @IBAction func redButtonLabel(sender: AnyObject) {
+        simonSaysGame.guessRed()
+        if simonSaysGame.wonGame() == true{
+            winLabel.text = "You won!"
+            winLabel.hidden = false
+        }else if simonSaysGame.wonGame() == false && simonSaysGame.chosenColors.count == simonSaysGame.patternToMatch.count {
+            winLabel.text = "Nope, try again."
+            winLabel.hidden = false
+        }
+    }
+    @IBAction func greenButtonLabel(sender: AnyObject) {
+        simonSaysGame.guessGreen()
+        if simonSaysGame.wonGame() == true{
+            winLabel.hidden = false
+            winLabel.text = "You won!"
+        }else if simonSaysGame.wonGame() == false && simonSaysGame.chosenColors.count == simonSaysGame.patternToMatch.count{
+            winLabel.text = "Nope, try again."
+            winLabel.hidden = false
+        }
+    }
+    @IBAction func yellowButtonLabel(sender: AnyObject) {
+        simonSaysGame.guessYellow()
+        if simonSaysGame.wonGame() == true{
+            winLabel.hidden = false
+            winLabel.text = "You won!"
+        }else if simonSaysGame.wonGame() == false && simonSaysGame.chosenColors.count == simonSaysGame.patternToMatch.count {
+            winLabel.text = "Nope, try again."
+            winLabel.hidden = false
+        }
+    }
+    @IBAction func blueButtonLabel(sender: AnyObject) {
+        simonSaysGame.guessBlue()
+        if simonSaysGame.wonGame() == true{
+            winLabel.hidden = false
+            winLabel.text = "You won!"
+        }else if simonSaysGame.wonGame() == false && simonSaysGame.chosenColors.count == simonSaysGame.patternToMatch.count {
+            winLabel.text = "Nope, try again."
+            winLabel.hidden = false
+        }
+    }
+    
+    
     var simonSaysGame = SimonSays()
     var buttonsClicked = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        winLabel.hidden = true
     }
 }
 
